@@ -75,7 +75,7 @@ def create_event(request):
             event_image_form.save(commit=False)
             event_image_form.event_form = ef
             event_image_form.save()
-            
+
             event_agenda_form.save(commit=False)
             event_agenda_form.event_form = ef
             event_agenda_form.save()
@@ -105,10 +105,10 @@ class EventCreateView(LoginRequiredMixin, CreateView):
         event_agenda.save()
 
         return super().form_valid(form)
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        
+
         context['ctg'] = EventCategory.objects.all()
         return context
 
